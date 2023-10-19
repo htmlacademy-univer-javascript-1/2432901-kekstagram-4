@@ -65,21 +65,21 @@ const createMessage = () => Array.from(
 ).join(' ');
 
 const createComment = () => ({
-    id: generateCommentID(),
-    avatar: `img/avatar-${getRandomInteger(1, AVATAR_COUNT)}.svg`,
-    message: createMessage(),
-    name: getRandomArrayElement(NAMES),
+  id: generateCommentID(),
+  avatar: `img/avatar-${getRandomInteger(1, AVATAR_COUNT)}.svg`,
+  message: createMessage(),
+  name: getRandomArrayElement(NAMES),
 });
 
 const createPicture = (index) => ({
-    id: index,
-    url: `photos/${index}.jpg`,
-    description: getRandomArrayElement(DESCRIPTION),
-    likes: getRandomInteger(LIKE_MIN_COUNT, LIKE_MAX_COUNT),
-    comments: Array.from(
-      { length: getRandomInteger(0, COMMENT_COUNT) },
-      createComment,
-    ),
+  id: index,
+  url: `photos/${index}.jpg`,
+  description: getRandomArrayElement(DESCRIPTION),
+  likes: getRandomInteger(LIKE_MIN_COUNT, LIKE_MAX_COUNT),
+  comments: Array.from(
+    { length: getRandomInteger(0, COMMENT_COUNT) },
+    createComment,
+  ),
 });
 
 const getPictures = () => Array.from (
