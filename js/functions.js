@@ -15,7 +15,7 @@ function extractNumbers (startString) {
   const string = startString.toString();
   let number = '';
   for (let i = 0; i < string.length; i++) {
-    if (Number.isNaN(parseInt(string[i], 10))){
+    if (!Number.isNaN(parseInt(string[i], 10))) {
       number += string[i];
     }
   }
