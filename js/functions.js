@@ -1,15 +1,16 @@
 function isStringLessOrEqual (string, length) {
   return string.length <= length;
 }
+isStringLessOrEqual();
 
 function isStringPalindrom (startString) {
   const string = startString.replaceAll(' ', '').toLowerCase();
   let reversedString = '';
   for (let i = string.length - 1; i >= 0; i--) {
-    reversedString += string[i];
-    }
+    reversedString += string[i]; }
   return reversedString === string;
 }
+isStringPalindrom();
 
 function extractNumbers (startString) {
   const string = startString.toString();
@@ -21,3 +22,4 @@ function extractNumbers (startString) {
   }
   return parseInt(number, 10);
 }
+extractNumbers();
