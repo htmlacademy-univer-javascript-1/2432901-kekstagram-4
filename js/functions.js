@@ -11,3 +11,4 @@ function checkTime(dayStart, dayEnd, meetingStart, meetingDuration) {
   return (dayStartInMinutes <= meetingStartInMinutes && meetingStartInMinutes + meetingDuration <= dayEndInMinutes);
 }
 
+
