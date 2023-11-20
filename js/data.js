@@ -74,4 +74,3 @@ const getPictures = () => Array.from (
 
 export {getPictures};
 
-
