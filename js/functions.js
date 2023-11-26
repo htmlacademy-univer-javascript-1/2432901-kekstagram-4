@@ -1,6 +1,8 @@
-function isStringLessOrEqual (string, length) {
-  return string.length <= length;
+function countTimeInMinutes(time) {
+  const [hour, minute] = time.split(':');
+  return Number(hour) * 60 + Number(minute);
 }
+
 isStringLessOrEqual();
 function isStringPalindrom (startString) {
   const string = startString.replaceAll(' ', '').toLowerCase();
@@ -11,14 +13,14 @@ function isStringPalindrom (startString) {
 }
 isStringPalindrom();
 
-function extractNumbers (startString) {
-  const string = startString.toString();
-  let number = '';
-  for (let i = 0; i < string.length; i++) {
-    if (!Number.isNaN(parseInt(string[i], 10))) {
-      number += string[i];
-    }
-  }
-  return parseInt(number, 10);
+function checkTime(dayStart, dayEnd, meetingStart, meetingDuration) {
+  const dayStartInMinutes = countTimeInMinutes(dayStart);
+  const dayEndInMinutes = countTimeInMinutes(dayEnd);
+  const meetingStartInMinutes = countTimeInMinutes(meetingStart);
+
+  return (dayStartInMinutes <= meetingStartInMinutes && meetingStartInMinutes + meetingDuration <= dayEndInMinutes);
 }
-extractNumbers();
+
+checkTime();
+
+
