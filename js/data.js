@@ -75,4 +75,4 @@ const getPictures = () => Array.from (
 const pictures = getPictures();
 
 export { pictures };
-
+//
