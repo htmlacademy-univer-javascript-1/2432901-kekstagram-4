@@ -1,4 +1,4 @@
-export { initEffects, initScale, resetEffects } from './scale.js';
+import { initScale, initEffects, resetEffects} from './scale.js';
 const VALID_SYMBOLS = /^#[a-zа-ё0-9]{1,19}$/i;
 const VALID_FILE_TYPES = ['jpg', 'jpeg', 'png'];
 const MAX_HASHTAG_COUNT = 5;
