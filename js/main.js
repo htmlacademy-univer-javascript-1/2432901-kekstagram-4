@@ -1,7 +1,6 @@
 import { pictures } from './data.js';
 import { renderMiniatures } from './miniatures.js';
-
-import './fullSizePictures.js';
-import './form.js';
-
+import { initEditPopup } from './form.js';
 renderMiniatures(pictures);
+
+initEditPopup();
