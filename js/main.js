@@ -1,7 +1,8 @@
-import { pictures } from './data.js';
-import { renderMiniatures } from './miniatures.js';
+import { renderMiniatures } from './render-miniatures.js';
+import { initEditPopup } from './form.js';
+import { getData } from './api.js';
+import { showAlert } from './util.js';
 
-import './fullSizePictures.js';
-import './form.js';
+getData().then((pictures) => renderMiniatures(pictures)).catch((error) => showAlert(error.message));
 
-renderMiniatures(pictures);
+initEditPopup();
