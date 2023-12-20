@@ -24,6 +24,9 @@ const getCommentTemplate = (comment) => `
 
 const renderComments = () => {
   commentsShownCount += COMMENTS_LOADED_COUNT;
+  if (commentsShownCount >= commentsArray.length ){
+    commentsShownCount = commentsArray.length;
+  }
   loadButtonElement.classList.toggle('hidden', commentsShownCount >= commentsArray.length);
   const commentsSet = commentsArray.slice(0, commentsShownCount);
   commentsListElement.innerHTML = commentsSet.map((comment) => getCommentTemplate(comment)).join('');
@@ -61,7 +64,7 @@ const closeFullsizePicture = () => {
 };
 
 function onDocumentKeyDown(evt) {
-  if (isEscapeKey) {
+  if (isEscapeKey && !evt.target.querySelector('.error')) {
     evt.preventDefault();
     closeFullsizePicture();
   }
@@ -80,5 +83,6 @@ const showFullsizePicture = (picture) => {
   document.addEventListener('keydown', onDocumentKeyDown);
   cancelButtonElement.addEventListener('click', onCancelButtonClick);
 };
+
 
 export { showFullsizePicture };

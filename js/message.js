@@ -15,7 +15,6 @@ const hideMessage = () => {
   const currentAlert = bodyElement.querySelector(SUCCESS_SELECTOR) || bodyElement.querySelector(ERROR_SELECTOR);
   const exitButton = currentAlert.querySelector(SUCCESS_BUTTON_SELECTOR) || currentAlert.querySelector(ERROR_BUTTON_SELECTOR);
   currentAlert.remove();
-
   exitButton.removeEventListener('click', hideMessage);
   document.removeEventListener('click', onOutsideClick);
   document.removeEventListener('keydown', onDocumentEscKeydown);
