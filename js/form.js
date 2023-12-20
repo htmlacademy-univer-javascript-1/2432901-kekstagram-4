@@ -27,10 +27,13 @@ const cancelButtonElement = overlayElement.querySelector('.img-upload__cancel');
 const hashtagFieldElement = formElement.querySelector('.text__hashtags');
 const descriptionFieldElement = formElement.querySelector('.text__description');
 const submitButtonElement = formElement.querySelector('.img-upload__submit');
+const photoPreviewElement = formElement.querySelector('.img-upload__preview img');
+const effectsPreviewElement = formElement.querySelectorAll('.effects__preview');
 
 const pristine = new Pristine(formElement, {
   classTo: 'img-upload__field-wrapper',
   errorTextParent: 'img-upload__field-wrapper',
+  errorTextClass: 'img-upload__field-wrapper--error'
 });
 
 const isTextFieldFocused = () =>
@@ -59,9 +62,17 @@ const initValidation = () => {
 };
 
 const openEditPopup = () => {
+  const file = inputUploadElement.files[0];
+  const fileName = file.name.toLowerCase();
+  const validFile = VALID_FILE_TYPES.some((it) => fileName.endsWith(it));
   bodyElement.classList.add('modal-open');
   overlayElement.classList.remove('hidden');
-
+  if (file && validFile) {
+    photoPreviewElement.src = URL.createObjectURL(file);
+    effectsPreviewElement.forEach((element) => {
+      element.style.backgroundImage = `url('${URL.createObjectURL(file)}')`;
+    });
+  }
   document.addEventListener('keydown', onDocumentKeyDown);
   cancelButtonElement.addEventListener('click', onCancelButtonClick);
   formElement.addEventListener('submit', onFormElementSubmit);
