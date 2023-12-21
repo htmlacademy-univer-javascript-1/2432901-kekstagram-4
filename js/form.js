@@ -6,6 +6,7 @@ import { showErrorMessage, showSuccessMessage } from './message.js';
 const VALID_SYMBOLS = /^#[a-zа-ё0-9]{1,19}$/i;
 const VALID_FILE_TYPES = ['jpg', 'jpeg', 'png'];
 const MAX_HASHTAG_COUNT = 5;
+const MAX_COMMENT_LENGTH = 140;
 
 const SubmitButtonText = {
   DEFAULT: 'Опубликовать',
@@ -42,7 +43,7 @@ const isTextFieldFocused = () =>
 const normilizeHashtags = (hashtagString) => hashtagString.trim().split(' ').filter((hashtag) => hashtag.length > 0);
 const validateHashtagCount = (value) => normilizeHashtags(value).length <= MAX_HASHTAG_COUNT;
 const validateHashtags = (value) => normilizeHashtags(value).every((hashtag) => VALID_SYMBOLS.test(hashtag));
-const validateDescription = (value) => value.length <= 140;
+const validateDescription = (value) => value.length <= MAX_COMMENT_LENGTH;
 
 const validateUniqueHashtag = (value) => {
   const lowerCaseHashtags = normilizeHashtags(value).map((hashtag) => hashtag.toLowerCase());
