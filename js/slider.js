@@ -4,42 +4,42 @@ const MIN_SCALE = 25;
 const PERCENT_DIVIDER = 100;
 
 const Effect = {
-  default: {
+  DEFAULT: {
     style: 'none',
     min: 0,
     max: 100,
     step: 1,
     measure: '',
   },
-  chrome: {
+  CHROME: {
     style: 'grayscale',
     min: 0,
     max: 1,
     step: 0.1,
     measure: '',
   },
-  sepia: {
+  SEPIA: {
     style: 'sepia',
     min: 0,
     max: 1,
     step: 0.1,
     measure: '',
   },
-  marvin: {
+  MARVIN: {
     style: 'invert',
     min: 0,
     max: 100,
     step: 1,
     measure: '%',
   },
-  phobos: {
+  PHOBOS: {
     style: 'blur',
     min: 0,
     max: 3,
     step: 0.1,
     measure: 'px',
   },
-  heat: {
+  HEAT: {
     style: 'brightness',
     min: 0,
     max: 3,
@@ -87,7 +87,7 @@ const updateSlider = () => {
   }
 };
 
-const onChangeEffect = (evt) => {
+const onEffectChange = (evt) => {
   chosenEffect = Effect[evt.target.value] ? Effect[evt.target.value] : Effect.default;
   previewElement.className = `effects__preview--${chosenEffect.name}`;
   updateSlider();
@@ -122,7 +122,7 @@ const initEffects = () => {
   createSlider();
   closeSlider();
 
-  effectsElement.addEventListener('change', onChangeEffect);
+  effectsElement.addEventListener('change', onEffectChange);
   sliderElement.noUiSlider.on('update', onSliderUpdate);
 };
 
