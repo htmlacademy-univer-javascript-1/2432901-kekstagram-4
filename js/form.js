@@ -130,7 +130,7 @@ const onInputUploadElementChange = () => {
 };
 
 function onDocumentKeyDown(evt) {
-  if (isEscapeKey && !isTextFieldFocused()) {
+  if (isEscapeKey(evt) && !isTextFieldFocused()) {
     evt.preventDefault();
     resetEditPopup();
   }
