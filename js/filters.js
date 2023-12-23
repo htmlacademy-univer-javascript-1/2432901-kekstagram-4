@@ -51,4 +51,3 @@ const initFilters = (data, callback) => {
 };
 
 export { initFilters };
-

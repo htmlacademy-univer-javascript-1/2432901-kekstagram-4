@@ -27,6 +27,7 @@ const createMiniature = ({url, description, likes, comments, id}) => {
 };
 
 const renderMiniatures = (data) => {
+  const picturesListFragment = document.createDocumentFragment();
   document
     .querySelectorAll(PICTURE_SELECTOR)
     .forEach((element) => element.remove());
@@ -34,7 +35,6 @@ const renderMiniatures = (data) => {
   if (!pictures) {
     return;
   }
-  const picturesListFragment = document.createDocumentFragment();
   pictures.forEach((picture) => {
     const miniature = createMiniature(picture);
     picturesListFragment.appendChild(miniature);

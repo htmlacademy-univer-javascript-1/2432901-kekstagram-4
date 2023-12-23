@@ -54,7 +54,6 @@ const renderPicture = (picture) => {
   bigPictureElement.querySelector('.comments-count').textContent = commentsArray.length;
 };
 
-
 const closeFullsizePicture = () => {
   bigPictureElement.classList.add('hidden');
   bodyElement.classList.remove('modal-open');
