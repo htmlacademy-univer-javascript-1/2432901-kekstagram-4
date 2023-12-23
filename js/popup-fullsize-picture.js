@@ -2,15 +2,15 @@ import { isEscapeKey } from './util.js';
 
 const COMMENTS_LOADED_COUNT = 5;
 
+let commentsShownCount = 0;
+let commentsArray= [];
+
 const bigPictureElement = document.querySelector('.big-picture');
 const cancelButtonElement = bigPictureElement.querySelector('.big-picture__cancel');
 const commentsShownCountElement = bigPictureElement.querySelector('.comments-shown');
 const commentsListElement = bigPictureElement.querySelector('.social__comments');
 const loadButtonElement = bigPictureElement.querySelector('.social__comments-loader');
 const bodyElement = document.querySelector('body');
-
-let commentsShownCount = 0;
-let commentsArray= [];
 
 const getCommentTemplate = (comment) => `
   <li class="social__comment">
@@ -63,7 +63,7 @@ const closeFullsizePicture = () => {
 };
 
 function onDocumentKeyDown(evt) {
-  if (isEscapeKey && !evt.target.querySelector('.error')) {
+  if (isEscapeKey(evt) && !evt.target.querySelector('.error')) {
     evt.preventDefault();
     closeFullsizePicture();
   }
