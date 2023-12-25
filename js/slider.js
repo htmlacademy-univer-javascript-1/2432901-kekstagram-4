@@ -49,6 +49,7 @@ const Effect = {
 };
 
 const DEFAULT_EFFECT = Effect.default;
+let chosenEffect = DEFAULT_EFFECT;
 
 const bodyElement = document.querySelector('body');
 const overlayElement = bodyElement.querySelector('.img-upload__overlay');
@@ -62,7 +63,6 @@ const effectsElement = document.querySelector('.effects');
 const sliderElement = document.querySelector('.effect-level__slider');
 const sliderContainerElement = document.querySelector('.img-upload__effect-level');
 const levelEffectElement = document.querySelector('.effect-level__value');
-let chosenEffect = DEFAULT_EFFECT;
 
 const isDefault = () => chosenEffect === DEFAULT_EFFECT;
 

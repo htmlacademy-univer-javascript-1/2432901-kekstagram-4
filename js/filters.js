@@ -2,8 +2,6 @@ const PICTURES_COUNT = 10;
 const FILTERS_BUTTON_CLASS = 'img-filters__button';
 const FILTER_ACTIVE_CLASS = `${FILTERS_BUTTON_CLASS}--active`;
 
-const filtersContainer = document.querySelector('.img-filters');
-
 const Filter = {
   DEFAULT: 'filter-default',
   RANDOM: 'filter-random',
@@ -12,6 +10,8 @@ const Filter = {
 
 let currentFilter = Filter.DEFAULT;
 let pictures = [];
+
+const filtersContainer = document.querySelector('.img-filters');
 
 const sortRandomly = () => Math.random() - 0.5;
 const sortByCommentsCount = (pictureA, pictureB) => pictureB.comments.length - pictureA.comments.length;

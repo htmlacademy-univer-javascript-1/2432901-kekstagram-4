@@ -1,9 +1,10 @@
 import { showFullsizePicture } from './popup-fullsize-picture.js';
 
-const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
-const container = document.querySelector('.pictures');
 const PICTURE_SELECTOR = '.picture';
 let pictures = null;
+
+const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
+const container = document.querySelector('.pictures');
 
 const onPicturesContainerClick = (evt) => {
   const targetElement = evt.target.closest('.picture');
